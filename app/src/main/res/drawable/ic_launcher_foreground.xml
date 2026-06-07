@@ -1,13 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  NetworkGuard — Icono EG
+  Diseño: Iniciales "EG" integradas en un escudo con señal WiFi/red.
+  Paleta: Púrpura #9D4EDD + Cyan #00D4FF sobre #07080F
+  Único diferenciador: escudo de protección con ondas de red emanando
+-->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp" android:height="108dp"
     android:viewportWidth="108" android:viewportHeight="108">
-    <path android:fillColor="#4CAF50"
-        android:pathData="M54,20 L54,20 C65,20 74,29 74,40 L74,68 C74,79 65,88 54,88 C43,88 34,79 34,68 L34,40 C34,29 43,20 54,20 Z"/>
-    <path android:fillColor="#0D1117"
-        android:pathData="M48,32 L60,32 L60,36 L48,36 Z"/>
-    <path android:fillColor="#81C784"
-        android:pathData="M42,42 L66,42 L66,70 C66,75 60.6,79 54,79 C47.4,79 42,75 42,70 Z"/>
-    <path android:fillColor="#4CAF50"
-        android:pathData="M42,42 L66,42 L66,58 L42,58 Z"/>
+
+    <!-- Escudo principal (fondo) -->
+    <path
+        android:fillColor="#120820"
+        android:pathData="M54,14 L82,26 L82,52 Q82,72 54,90 Q26,72 26,52 L26,26 Z" />
+
+    <!-- Borde del escudo púrpura -->
+    <path
+        android:fillColor="#9D4EDD"
+        android:pathData="M54,14 L82,26 L82,52 Q82,72 54,90 Q26,72 26,52 L26,26 Z M54,21 L75,31 L75,52 Q75,68 54,83 Q33,68 33,52 L33,31 Z"
+        android:fillAlpha="0.85"/>
+
+    <!-- Onda WiFi grande (tope) — cyan -->
+    <path
+        android:fillColor="#00D4FF"
+        android:pathData="M54,36 Q66,36 74,44 L69,49 Q63,43 54,43 Q45,43 39,49 L34,44 Q42,36 54,36 Z"
+        android:fillAlpha="0.9"/>
+
+    <!-- Onda WiFi media — púrpura claro -->
+    <path
+        android:fillColor="#C77DFF"
+        android:pathData="M54,44 Q62,44 67,50 L62,55 Q59,51 54,51 Q49,51 46,55 L41,50 Q46,44 54,44 Z"
+        android:fillAlpha="0.9"/>
+
+    <!-- Punto WiFi central -->
+    <path
+        android:fillColor="#00D4FF"
+        android:pathData="M54,54 C56.8,54 59,56.2 59,59 C59,61.8 56.8,64 54,64 C51.2,64 49,61.8 49,59 C49,56.2 51.2,54 54,54 Z" />
+
+    <!-- "E" de Enmanuel — parte inferior izq del escudo -->
+    <path
+        android:fillColor="#E8E8FF"
+        android:pathData="
+            M33,64 L33,84 L46,84 L46,80 L37,80 L37,75 L44,75 L44,71 L37,71 L37,68 L46,68 L46,64 Z"
+        android:fillAlpha="0.95"/>
+
+    <!-- "G" de Gil — parte inferior der del escudo -->
+    <path
+        android:fillColor="#C77DFF"
+        android:pathData="
+            M62,64 Q53,64 53,74 Q53,84 62,84 L66,84 L68,84 L68,73 L61,73 L61,77 L64,77 L64,80 L62,80 Q57,80 57,74 Q57,68 62,68 Q65,68 67,70 L70,67 Q67,64 62,64 Z"
+        android:fillAlpha="0.95"/>
+
 </vector>

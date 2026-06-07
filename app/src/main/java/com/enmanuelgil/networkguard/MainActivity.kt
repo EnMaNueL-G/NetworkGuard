@@ -52,11 +52,14 @@ data class NavItem(val label: String, val icon: ImageVector)
 
 @Composable
 fun NetworkGuardApp(viewModel: MainViewModel) {
-    val networkState  by viewModel.networkState.collectAsStateWithLifecycle()
-    val appTraffic    by viewModel.appTraffic.collectAsStateWithLifecycle()
-    val alerts        by viewModel.alerts.collectAsStateWithLifecycle()
-    val isLoading     by viewModel.isLoading.collectAsStateWithLifecycle()
-    val showSystem    by viewModel.showSystemApps.collectAsStateWithLifecycle()
+    val networkState     by viewModel.networkState.collectAsStateWithLifecycle()
+    val appTraffic       by viewModel.appTraffic.collectAsStateWithLifecycle()
+    val alerts           by viewModel.alerts.collectAsStateWithLifecycle()
+    val isLoading        by viewModel.isLoading.collectAsStateWithLifecycle()
+    val isOptimizing     by viewModel.isOptimizing.collectAsStateWithLifecycle()
+    val optimizeResult   by viewModel.optimizeResult.collectAsStateWithLifecycle()
+    val showSystem       by viewModel.showSystemApps.collectAsStateWithLifecycle()
+    val perUidSupported  by viewModel.perUidSupported.collectAsStateWithLifecycle()
 
     var selectedTab by remember { mutableIntStateOf(0) }
 
@@ -98,7 +101,8 @@ fun NetworkGuardApp(viewModel: MainViewModel) {
                 }
                 TabContent(
                     selectedTab, networkState, appTraffic, alerts,
-                    isLoading, showSystem, viewModel,
+                    isLoading, isOptimizing, optimizeResult,
+                    showSystem, perUidSupported, viewModel,
                     Modifier.weight(1f)
                 )
             }
@@ -128,7 +132,8 @@ fun NetworkGuardApp(viewModel: MainViewModel) {
             ) { innerPadding ->
                 TabContent(
                     selectedTab, networkState, appTraffic, alerts,
-                    isLoading, showSystem, viewModel,
+                    isLoading, isOptimizing, optimizeResult,
+                    showSystem, perUidSupported, viewModel,
                     Modifier.padding(innerPadding)
                 )
             }
@@ -143,23 +148,31 @@ private fun TabContent(
     appTraffic: List<com.enmanuelgil.networkguard.model.AppTrafficInfo>,
     alerts: List<com.enmanuelgil.networkguard.model.NetworkAlert>,
     isLoading: Boolean,
+    isOptimizing: Boolean,
+    optimizeResult: com.enmanuelgil.networkguard.viewmodel.OptimizeNetResult?,
     showSystem: Boolean,
+    perUidSupported: Boolean,
     viewModel: MainViewModel,
     modifier: Modifier = Modifier
 ) {
     Box(modifier.fillMaxSize()) {
         when (tab) {
             0 -> DashboardScreen(
-                state       = networkState,
-                alerts      = alerts,
-                isLoading   = isLoading,
+                state         = networkState,
+                alerts        = alerts,
+                isLoading     = isLoading,
                 onClearAlerts = { viewModel.clearAlerts() }
             )
             1 -> AppsScreen(
                 apps             = appTraffic,
                 showSystemApps   = showSystem,
+                isLoading        = isLoading,
+                perUidSupported  = perUidSupported,
+                isOptimizing     = isOptimizing,
+                optimizeResult   = optimizeResult,
                 onToggleSystemApps = { viewModel.toggleSystemApps() },
-                isLoading        = isLoading
+                onOptimize       = { viewModel.optimizeNetwork() },
+                onDismissResult  = { viewModel.dismissOptimizeResult() }
             )
             2 -> SettingsScreen()
         }
