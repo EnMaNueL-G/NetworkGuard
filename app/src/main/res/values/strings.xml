@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NetworkGuard</string>
+    <string name="tab_dashboard">Monitor</string>
+    <string name="tab_apps">Apps</string>
+    <string name="tab_settings">Ajustes</string>
+    <string name="channel_name">NetworkGuard Monitor</string>
+    <string name="channel_desc">Monitoreo continuo de tráfico de red</string>
+</resources>
