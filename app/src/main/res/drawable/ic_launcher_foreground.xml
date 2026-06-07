@@ -1,54 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  NetworkGuard — Icono EG
-  Diseño: Iniciales "EG" integradas en un escudo con señal WiFi/red.
-  Paleta: Púrpura #9D4EDD + Cyan #00D4FF sobre #07080F
-  Único diferenciador: escudo de protección con ondas de red emanando
+  NetworkGuard — Icono profesional v2
+  Concepto: Escudo moderno (protección) con tres barras de señal ascendentes
+  en su interior (= monitor de red). Sin texto. Bold y legible a cualquier tamaño.
+  Fondo en ic_launcher_background.xml (#07080F — negro-azul eléctrico)
 -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="108dp" android:height="108dp"
-    android:viewportWidth="108" android:viewportHeight="108">
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
 
-    <!-- Escudo principal (fondo) -->
+    <!-- ── Sombra del escudo (capa base, profundidad) ────────────────────────── -->
     <path
-        android:fillColor="#120820"
-        android:pathData="M54,14 L82,26 L82,52 Q82,72 54,90 Q26,72 26,52 L26,26 Z" />
+        android:fillColor="#000000"
+        android:fillAlpha="0.35"
+        android:pathData="
+          M54,16
+          L84,28
+          L84,55
+          Q84,76 54,93
+          Q24,76 24,55
+          L24,28 Z" />
 
-    <!-- Borde del escudo púrpura -->
+    <!-- ── Escudo — cuerpo principal (fondo oscuro interno) ─────────────────── -->
+    <path
+        android:fillColor="#110825"
+        android:pathData="
+          M54,14
+          L82,26
+          L82,53
+          Q82,74 54,91
+          Q26,74 26,53
+          L26,26 Z" />
+
+    <!-- ── Borde exterior del escudo — púrpura brillante ────────────────────── -->
+    <path
+        android:fillColor="#7B2FBE"
+        android:pathData="
+          M54,14
+          L82,26
+          L82,53
+          Q82,74 54,91
+          Q26,74 26,53
+          L26,26 Z
+          M54,21
+          L75,31
+          L75,53
+          Q75,70 54,84
+          Q33,70 33,53
+          L33,31 Z"
+        android:fillAlpha="0.9" />
+
+    <!-- ── Borde interior del escudo — degradado simulado (capa más clara) ──── -->
     <path
         android:fillColor="#9D4EDD"
-        android:pathData="M54,14 L82,26 L82,52 Q82,72 54,90 Q26,72 26,52 L26,26 Z M54,21 L75,31 L75,52 Q75,68 54,83 Q33,68 33,52 L33,31 Z"
-        android:fillAlpha="0.85"/>
+        android:fillAlpha="0.3"
+        android:pathData="
+          M54,21
+          L75,31
+          L75,53
+          Q75,70 54,84
+          Q33,70 33,53
+          L33,31 Z
+          M54,27
+          L70,35
+          L70,53
+          Q70,67 54,79
+          Q38,67 38,53
+          L38,35 Z" />
 
-    <!-- Onda WiFi grande (tope) — cyan -->
+    <!-- ── BARRAS DE SEÑAL (3 barras ascendentes de izquierda a derecha) ──────
+         Representan el monitor de tráfico de red. Diseño tipo EQ/signal.
+         Barra 1 (izquierda, más baja): x=39-45, y=63-72
+         Barra 2 (centro): x=50-56, y=55-72
+         Barra 3 (derecha, más alta): x=61-67, y=44-72
+         Todas con esquinas redondeadas simuladas y relleno cian.
+    -->
+
+    <!-- Barra 1 — pequeña (tráfico bajo) — color cian suave -->
+    <path
+        android:fillColor="#00B4CC"
+        android:pathData="
+          M39,63
+          Q39,61 41,61
+          L43,61
+          Q45,61 45,63
+          L45,71
+          Q45,73 43,73
+          L41,73
+          Q39,73 39,71 Z" />
+
+    <!-- Barra 2 — mediana (tráfico medio) — cian brillante -->
     <path
         android:fillColor="#00D4FF"
-        android:pathData="M54,36 Q66,36 74,44 L69,49 Q63,43 54,43 Q45,43 39,49 L34,44 Q42,36 54,36 Z"
-        android:fillAlpha="0.9"/>
+        android:pathData="
+          M50,54
+          Q50,52 52,52
+          L54,52
+          Q56,52 56,54
+          L56,71
+          Q56,73 54,73
+          L52,73
+          Q50,73 50,71 Z" />
 
-    <!-- Onda WiFi media — púrpura claro -->
-    <path
-        android:fillColor="#C77DFF"
-        android:pathData="M54,44 Q62,44 67,50 L62,55 Q59,51 54,51 Q49,51 46,55 L41,50 Q46,44 54,44 Z"
-        android:fillAlpha="0.9"/>
-
-    <!-- Punto WiFi central -->
+    <!-- Barra 3 — alta (tráfico alto) — cyan máximo + halo -->
     <path
         android:fillColor="#00D4FF"
-        android:pathData="M54,54 C56.8,54 59,56.2 59,59 C59,61.8 56.8,64 54,64 C51.2,64 49,61.8 49,59 C49,56.2 51.2,54 54,54 Z" />
-
-    <!-- "E" de Enmanuel — parte inferior izq del escudo -->
-    <path
-        android:fillColor="#E8E8FF"
         android:pathData="
-            M33,64 L33,84 L46,84 L46,80 L37,80 L37,75 L44,75 L44,71 L37,71 L37,68 L46,68 L46,64 Z"
-        android:fillAlpha="0.95"/>
+          M61,43
+          Q61,41 63,41
+          L65,41
+          Q67,41 67,43
+          L67,71
+          Q67,73 65,73
+          L63,73
+          Q61,73 61,71 Z" />
 
-    <!-- "G" de Gil — parte inferior der del escudo -->
+    <!-- ── Brillo pico de la barra alta (destaque animico) ─────────────────── -->
     <path
-        android:fillColor="#C77DFF"
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.45"
         android:pathData="
-            M62,64 Q53,64 53,74 Q53,84 62,84 L66,84 L68,84 L68,73 L61,73 L61,77 L64,77 L64,80 L62,80 Q57,80 57,74 Q57,68 62,68 Q65,68 67,70 L70,67 Q67,64 62,64 Z"
-        android:fillAlpha="0.95"/>
+          M61,43
+          Q61,41 63,41
+          L65,41
+          Q67,41 67,43
+          L67,47
+          L61,47 Z" />
+
+    <!-- ── Reflejo superior del escudo (efecto cristal/profundidad) ─────────── -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.07"
+        android:pathData="
+          M54,21
+          L75,31
+          L75,42
+          L54,38 Z" />
+
+    <!-- ── Punto de actividad (LED de red activa) — esquina sup der del escudo ─ -->
+    <path
+        android:fillColor="#00FF87"
+        android:pathData="
+          M78,22
+          C80.2,22 82,23.8 82,26
+          C82,28.2 80.2,30 78,30
+          C75.8,30 74,28.2 74,26
+          C74,23.8 75.8,22 78,22 Z" />
 
 </vector>
